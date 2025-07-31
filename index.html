@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Хамстер алхаж, нүх рүү орж унтах</title>
+<style>
+  body {
+    margin: 0;
+    background: linear-gradient(to top, #a1c4fd, #c2e9fb);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-family: Arial, sans-serif;
+  }
+  .ground {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: #654321;
+    border-top-left-radius: 50% 30%;
+    border-top-right-radius: 50% 30%;
+    box-shadow: inset 0 8px 15px #3d2600;
+    overflow: visible;
+  }
+  .hole {
+    position: absolute;
+    bottom: 0;
+    left: 65%;
+    width: 140px;
+    height: 80px;
+    background: #1b1b1b;
+    border-radius: 60px / 40px;
+    box-shadow: inset 0 5px 15px #000000aa;
+  }
+  .hamster-container {
+    position: absolute;
+    bottom: 100px;
+    left: -150px;
+    width: 150px;
+    height: 120px;
+    animation: walk 8s linear forwards;
+    cursor: pointer;
+  }
+  /* Хамстер SVG-ийг бага зэрэг хөдлөх animation */
+  .hamster-svg {
+    width: 100%;
+    height: 100%;
+    animation: bounceLegs 0.6s ease-in-out infinite;
+    transform-origin: center bottom;
+  }
+  @keyframes bounceLegs {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(5deg);
+    }
+  }
+  /* Хамстер нүх рүү орж жижигрэх, алга болох */
+  .hamster-container.sleeping {
+    animation: enterHole 3s forwards;
+  }
+  /* алхах хөдөлгөөн */
+  @keyframes walk {
+    0% {
+      left: -150px;
+      bottom: 100px;
+      opacity: 1;
+    }
+    70% {
+      left: 62%;
+      bottom: 100px;
+      opacity: 1;
+    }
+    100% {
+      left: 62%;
+      bottom: 100px;
+      opacity: 1;
+    }
+  }
+  /* Нүх рүү орж жижигрэх */
+  @keyframes enterHole {
+    0% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      bottom: 100px;
+      left: 62%;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0) translateY(40px);
+      bottom: 60px;
+      left: 62%;
+    }
+  }
+  /* Нүх дэргэд унтах тэмдэг */
+  .sleeping-sign {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    animation: floatZ 2s ease-in-out infinite;
+  }
+  @keyframes floatZ {
+    0%, 100% { transform: translate(-50%, 0); opacity: 1; }
+    50% { transform: translate(-50%, -20px); opacity: 0.6; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ground">
+  <div class="hole"></div>
+  <div class="hamster-container" id="hamster">
+    <svg class="hamster-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Хамстерын бие -->
+      <ellipse cx="32" cy="32" rx="28" ry="20" fill="#d2a679" stroke="#a67c52" stroke-width="2"/>
+      <!-- Нүд -->
+      <circle cx="22" cy="28" r="6" fill="white"/>
+      <circle cx="22" cy="28" r="3" fill="black"/>
+      <!-- Ам -->
+      <path d="M25 40 Q32 50 39 40" stroke="#6d3e1a" stroke-width="3" fill="none" />
+      <!-- Чих -->
+      <circle cx="10" cy="18" r="8" fill="#d2a679" stroke="#a67c52" stroke-width="2"/>
+      <circle cx="54" cy="18" r="8" fill="#d2a679" stroke="#a67c52" stroke-width="2"/>
+    </svg>
+  </div>
+</div>
+
+<div class="sleeping-sign" id="sleepSign" style="display:none;">💤</div>
+
+<script>
+  const hamster = document.getElementById('hamster');
+  const sleepSign = document.getElementById('sleepSign');
+
+  hamster.addEventListener('animationend', () => {
+    // Хамстер алхалт дууссан үед
+    hamster.classList.add('sleeping');
+    sleepSign.style.display = 'block';
+    sleepSign.style.left = '62%';
+    sleepSign.style.bottom = '280px';
+
+    // Нүх рүү орох animation эхлүүлэх
+    hamster.style.animation = 'enterHole 3s forwards';
+
+    // Нүх рүү орж алга болох үед
+    setTimeout(() => {
+      sleepSign.style.display = 'none';
+    }, 3000);
+  });
+</script>
+
+</body>
+</html>
