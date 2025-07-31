@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8" />
+<title>💖 Гоё Урилга</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #880e4f;
+  }
+
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px #b33265;
+  }
+
+  #inviteBox {
+    background: white;
+    padding: 3rem 4rem;
+    border-radius: 2rem;
+    box-shadow: 0 20px 50px rgba(216, 27, 96, 0.4);
+    max-width: 700px;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    position: relative;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+  }
+
+  #inviteBox.fadeOut {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #inviteBox button.closeBtn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #d81b60;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  #inviteBox button.closeBtn:hover {
+    color: #a31545;
+  }
+
+  #acceptBtn {
+    display: none;
+    margin-top: 3rem;
+    padding: 1.2rem 5rem;
+    font-size: 2.8rem;
+    background: linear-gradient(45deg, #d81b60, #ad1457);
+    border: none;
+    border-radius: 2rem;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 15px 40px rgba(216, 27, 96, 0.6);
+    transition: all 0.3s ease;
+    font-weight: 700;
+  }
+  #acceptBtn:hover:not(:disabled) {
+    background: linear-gradient(45deg, #ad1457, #d81b60);
+    box-shadow: 0 18px 50px rgba(173, 20, 87, 0.8);
+  }
+  #acceptBtn:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  #thanks {
+    margin-top: 4rem;
+    font-size: 3rem;
+    color: #388e3c;
+    font-weight: 700;
+    display: none;
+    text-shadow: 1px 1px 3px #2e7d32;
+  }
+
+  /* Зүрх animation */
+
+  .heart {
+    position: fixed;
+    bottom: -60px;
+    color: #e91e63;
+    font-size: 3rem;
+    animation-name: floatUp;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-120vh) scale(1.5);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>💌 Болзоонд урьж байна</h1>
+
+<div id="inviteBox">
+  <button class="closeBtn" aria-label="Хаах" onclick="closeInvite()">×</button>
+  <p>
+    Сайн байна уу! Танд 2025 оны 7-р сарын 30-нд Zaisan Hill-д уулзах урилга ирлээ.
+    Хэрвээ та зөвшөөрч байгаа бол доорх товчийг дараарай. ❤️
+  </p>
+</div>
+
+<button id="acceptBtn" onclick="accept()">Зөвшөөрч байна ❤️</button>
+
+<div id="thanks">🎉 Баярлалаа! Би хүлээж байх болно. Хайртай шүү! 💕</div>
+
+<script>
+  // Захиа хаах - fade out, accept товч гаргана
+  function closeInvite() {
+    const box = document.getElementById('inviteBox');
+    box.classList.add('fadeOut');
+    setTimeout(() => {
+      box.style.display = 'none';
+      document.getElementById('acceptBtn').style.display = 'inline-block';
+    }, 600);
+  }
+
+  // Зүрх үүсгэх функц
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (20 + Math.random() * 30) + 'px';
+    heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+    heart.textContent = '❤️';
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 6000);
+  }
+
+  // Зөвшөөрч байна товч дарах үйлдэл
+  function accept() {
+    document.getElementById('thanks').style.display = 'block';
+    const btn = document.getElementById('acceptBtn');
+    btn.disabled = true;
+    btn.style.opacity = '0.6';
+
+    // Зүрх урсах анимаци эхлүүлэх
+    const interval = setInterval(createHeart, 300);
+
+    // 6 секундийн дараа зүрх урсахыг зогсоох
+    setTimeout(() => clearInterval(interval), 6000);
+  }
+</script>
+
+</body>
+</html>
