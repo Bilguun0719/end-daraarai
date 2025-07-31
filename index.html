@@ -3,151 +3,119 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Хайрын Төгс Гарах 🚀💖</title>
-
+<title>Аймр Инээдтэй Хөгжилтэй Хуудас 😂🤣</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap');
-
-  /* Reset */
+  @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+  
   * {
     margin: 0; padding: 0; box-sizing: border-box;
   }
-
+  
   html, body {
     height: 100%;
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-    overflow-x: hidden;
-  }
-
-  /* Гол контейнер */
-  .container {
-    max-width: 900px;
-    margin: 40px auto;
-    background: #fff;
-    border-radius: 30px;
-    padding: 40px;
-    box-shadow: 0 10px 50px rgba(255, 105, 180, 0.5);
-    text-align: center;
-    position: relative;
+    font-family: 'Comic Neue', cursive;
+    background: linear-gradient(135deg, #00f260, #0575e6);
     overflow: hidden;
+    color: white;
   }
-
+  
+  .container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+  }
+  
   h1 {
-    font-family: 'Pacifico', cursive;
-    font-size: 5rem;
-    color: #e91e63;
-    text-shadow: 0 0 20px #ff4081;
-    margin-bottom: 20px;
+    font-size: 8vw;
+    margin-bottom: 0.3em;
+    text-shadow: 3px 3px 5px #000000aa;
   }
-
+  
   p {
-    font-size: 1.5rem;
-    line-height: 1.6;
-    color: #880e4f;
-    margin-bottom: 40px;
+    font-size: 3vw;
+    margin-bottom: 2em;
+    text-shadow: 2px 2px 4px #000000cc;
   }
-
+  
   button {
-    font-family: 'Pacifico', cursive;
-    background: #f50057;
+    font-size: 3vw;
+    background: #ffd700;
+    color: #222;
     border: none;
     border-radius: 50px;
-    color: white;
-    font-size: 2rem;
     padding: 20px 60px;
     cursor: pointer;
-    box-shadow: 0 0 25px #f5005799;
-    transition: all 0.3s ease;
-    user-select: none;
+    box-shadow: 0 0 30px #fff700aa;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-
+  
   button:hover {
-    background: #ff4081;
-    box-shadow: 0 0 40px #ff4081cc;
-    transform: scale(1.1);
+    transform: scale(1.2) rotate(10deg);
+    box-shadow: 0 0 50px #ffff00ff;
   }
-
-  /* Зүрхний анимаци */
-  .heart {
+  
+  /* Инээдтэй смайлнүүд хөдөлгөөн */
+  .smile {
     position: absolute;
-    font-size: 5rem;
-    color: #ff4081aa;
-    user-select: none;
-    animation-name: floatUp;
-    animation-timing-function: linear;
+    font-size: 6vw;
+    animation-name: bounceSmile;
+    animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    user-select: none;
   }
-
-  @keyframes floatUp {
-    0% {
-      bottom: -60px;
+  
+  @keyframes bounceSmile {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
       opacity: 1;
-      transform: translateX(0) scale(1);
     }
     50% {
-      opacity: 0.8;
-      transform: translateX(40px) scale(1.2);
-    }
-    100% {
-      bottom: 110vh;
-      opacity: 0;
-      transform: translateX(-40px) scale(0.8);
+      transform: translateY(-30px) rotate(15deg);
+      opacity: 0.7;
     }
   }
-
-  /* Мессеж харуулах хэсэг */
-  #message {
-    font-size: 2rem;
-    color: #d81b60;
-    margin-top: 30px;
-    min-height: 60px;
-  }
-
 </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>Чамдаа зориулсан хайрын мессеж 💖</h1>
-  <p>Блоклогдсон ч миний хайр үргэлж чинийх!</p>
-  <button id="loveBtn">Хайрын мессеж үзэх</button>
-  <div id="message"></div>
+  <h1>😂🤣 Аймр Инээдтэй Хуудас 🤣😂</h1>
+  <p>Энд зүгээр л хөгжилтэй юм байна, хайрын ямар ч холбоогүй! 😜</p>
+  <button id="btnLaugh">Нэг инээдтэй смайл нэмэх</button>
 </div>
 
 <script>
-  const messages = [
-    "Хайр минь, би чамайг мартахгүй! ❤️",
-    "Чиний инээд минь миний амьдралын гэрэл юм! 😊",
-    "Би чамдаа дахин дахин хайртай! 💕",
-    "Зүрх минь чиний төлөө цохилсоор л байна! 💓",
-    "Уучлаарай, намайг уучлаарай! 🙏"
-  ];
-
-  const btn = document.getElementById('loveBtn');
-  const messageDiv = document.getElementById('message');
-
-  btn.addEventListener('click', () => {
-    const randomIndex = Math.floor(Math.random() * messages.length);
-    messageDiv.textContent = messages[randomIndex];
-  });
-
-  // Зүрх үүсгэх функц
-  function createHeart() {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.textContent = '💖';
-    heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.animationDuration = (5 + Math.random() * 5) + 's';
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-      heart.remove();
-    }, 10000);
+  const container = document.querySelector('.container');
+  
+  function randomPosition() {
+    const x = Math.random() * window.innerWidth * 0.8 + window.innerWidth * 0.1;
+    const y = Math.random() * window.innerHeight * 0.8 + window.innerHeight * 0.1;
+    return {x, y};
   }
-
-  setInterval(createHeart, 500);
-
+  
+  document.getElementById('btnLaugh').addEventListener('click', () => {
+    const smile = document.createElement('div');
+    smile.classList.add('smile');
+    // Санамсаргүй смайл сонгоно
+    const smiles = ['😂', '🤣', '😹', '😆', '😜', '😛', '😝'];
+    smile.textContent = smiles[Math.floor(Math.random() * smiles.length)];
+    
+    const pos = randomPosition();
+    smile.style.left = pos.x + 'px';
+    smile.style.top = pos.y + 'px';
+    
+    // Хамгийн сүүлд container-д нэмэх
+    container.appendChild(smile);
+    
+    // 5 секундийн дараа устгах
+    setTimeout(() => {
+      smile.remove();
+    }, 5000);
+  });
 </script>
 
 </body>
