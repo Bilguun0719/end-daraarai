@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <title>Блоклогдсон Хайр 😂❤️</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+    body {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+      font-family: 'Luckiest Guy', cursive;
+      text-align: center;
+      padding: 50px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 5rem;
+      color: #ff3366;
+      text-shadow: 2px 2px 0 #fff, 5px 5px 15px #ff6699;
+      animation: pulse 2s infinite;
+      margin-bottom: 0.2em;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); color: #ff3366; }
+      50% { transform: scale(1.1); color: #ff6699; }
+    }
+
+    .subtitle {
+      font-size: 2rem;
+      color: #aa0044;
+      margin-bottom: 2em;
+    }
+
+    .hearts {
+      position: relative;
+      height: 150px;
+      margin-bottom: 30px;
+    }
+
+    .heart {
+      font-size: 3rem;
+      position: absolute;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    .heart:nth-child(1) {
+      left: 20%;
+      animation-delay: 0s;
+    }
+    .heart:nth-child(2) {
+      left: 40%;
+      animation-delay: 2s;
+    }
+    .heart:nth-child(3) {
+      left: 60%;
+      animation-delay: 4s;
+    }
+    .heart:nth-child(4) {
+      left: 80%;
+      animation-delay: 1s;
+    }
+    .heart:nth-child(5) {
+      left: 50%;
+      animation-delay: 3s;
+    }
+
+    @keyframes floatUp {
+      0% {
+        bottom: 0;
+        opacity: 0.8;
+        transform: translateX(0) scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: translateX(20px) scale(1.2);
+      }
+      100% {
+        bottom: 160px;
+        opacity: 0;
+        transform: translateX(-20px) scale(0.8);
+      }
+    }
+
+    button {
+      background-color: #ff3366;
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      padding: 20px 50px;
+      border-radius: 40px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px #ff6699aa;
+      transition: all 0.3s ease;
+      font-family: 'Luckiest Guy', cursive;
+    }
+
+    button:hover {
+      background-color: #ff6699;
+      box-shadow: 0 10px 20px #ff66aaee;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>🚫❤️ Блоклогдсон Хайр ❤️🚫</h1>
+  <div class="subtitle">“Чамайг блоклосон ч би чамд хайртай” 😂🥺</div>
+
+  <div class="hearts">
+    <div class="heart">💔</div>
+    <div class="heart">💘</div>
+    <div class="heart">💕</div>
+    <div class="heart">💖</div>
+    <div class="heart">💗</div>
+  </div>
+
+  <button onclick="alert('Хайр чинь блоклогдсон ч инээд чинь алдагдахгүй! 😂❤️')">
+    Блокыг тайл!
+  </button>
+</body>
+</html>
