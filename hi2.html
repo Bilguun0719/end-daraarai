@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <title>💖 Болзооны урилга</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #ffe0ec, #ffeaea);
+      text-align: center;
+      padding: 50px;
+      color: #333;
+    }
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 28px;
+      color: #e91e63;
+    }
+    p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+    button {
+      background-color: #ff4081;
+      border: none;
+      color: white;
+      padding: 12px 25px;
+      margin-top: 25px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    button:hover {
+      background-color: #f50057;
+    }
+    .gif {
+      margin-top: 25px;
+      display: none;
+    }
+    .gif img {
+      width: 250px;
+      border-radius: 10px;
+    }
+    .thanks {
+      font-size: 20px;
+      color: #4caf50;
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>💌Мөнхзулыг Болзоонд урьж байна</h1>
+    <p><strong>Цаг:</strong> 2025 оны 7-р сарын 30, 18:00</p>
+    <p><strong>Газар:</strong> Zaisan Hill</p>
+    <p>Хэрвээ зөвшөөрч байвал доорх товчийг дараарай 😘</p>
+    <button onclick="accept()">Зөвшөөрч байна ❤️</button>
+
+    <div class="gif" id="gif">
+      <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Love Gif" />
+    </div>
+
+    <div class="thanks" id="thanks">
+      🎉 Хайртай шүү! 💕
+    </div>
+  </div>
+
+  <script>
+    function accept() {
+      document.getElementById("gif").style.display = "block";
+      document.getElementById("thanks").style.display = "block";
+    }
+  </script>
+</body>
+</html>
