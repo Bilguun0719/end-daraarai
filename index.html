@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hamster Animation</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to top, #ffe4ec 30%, #f5f5f5 100%);
+      overflow: hidden;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      position: relative;
+      height: 100vh;
+    }
+
+    .hamster {
+      position: absolute;
+      bottom: 0;
+      left: -200px;
+      width: 150px;
+      animation: walk 8s linear forwards;
+      transition: transform 1s ease;
+    }
+
+    .castle {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 300px;
+      height: 300px;
+      background: url('https://i.ibb.co/1bbz1r6/castle.png') no-repeat center/contain;
+    }
+
+    @keyframes walk {
+      0% { left: -200px; }
+      70% { left: 60%; transform: rotateY(0); }
+      75% { left: 60%; transform: rotateY(180deg); }
+      100% { left: 90%; opacity: 0; }
+    }
+
+    .sleeping {
+      position: absolute;
+      bottom: 50px;
+      left: 65%;
+      width: 160px;
+      opacity: 0;
+      animation: fadeIn 2s 8s forwards;
+    }
+
+    .z {
+      position: absolute;
+      top: -30px;
+      left: 80px;
+      font-size: 40px;
+      opacity: 0;
+      animation: zzz 2s 9s infinite;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes zzz {
+      0% { opacity: 0; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-20px); }
+      100% { opacity: 0; transform: translateY(-40px); }
+    }
+  </style>
+</head>
+<body>
+  <img src="https://cdn.pixabay.com/photo/2017/01/31/20/20/hamster-2024989_1280.png" class="hamster" alt="Hamster" />
+  <div class="castle"></div>
+  <img src="https://cdn.pixabay.com/photo/2017/01/31/20/20/hamster-2024989_1280.png" class="sleeping" alt="Hamster Sleeping" />
+  <div class="z">💤</div>
+</body>
+</html>
